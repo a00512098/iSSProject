@@ -26,7 +26,7 @@ class ResponseObserver(val responseCallback: ResponseCallback) : Observer<ApiRes
     }
 
     interface ResponseCallback {
-        fun onSuccess(response: ApiResponse)
+        fun onSuccess(apiResponse: ApiResponse)
         fun onError(e: Throwable)
     }
 
