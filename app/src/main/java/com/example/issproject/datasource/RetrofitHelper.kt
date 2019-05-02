@@ -11,7 +11,8 @@ import retrofit2.http.Query
 
 object RetrofitHelper {
 
-    private const val BASE_URL = "http://api.open-notify.org/iss-pass.json?"
+    private const val BASE_URL = "http://api.open-notify.org/"
+    private const val API_PATH = "iss-pass.json?"
     private const val LATITUDE = "lat"
     private const val LONGITUDE = "lon"
 
@@ -31,7 +32,7 @@ object RetrofitHelper {
     }
 
     interface ObservableInterface {
-        @GET
+        @GET(API_PATH)
         fun getResponse(
             @Query(LATITUDE) latitude: String,
             @Query(LONGITUDE) longitude: String

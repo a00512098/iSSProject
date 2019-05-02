@@ -3,6 +3,7 @@ package com.example.issproject
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import com.example.issproject.datasource.ResponseObserver
 import com.example.issproject.datasource.ResponseRepo
 import com.example.issproject.model.ApiResponse
@@ -34,9 +35,14 @@ class MainActivity : AppCompatActivity(), ResponseObserver.ResponseCallback {
         }
     }
 
-    override fun onSuccess(response: ApiResponse) {
+    override fun onSuccess(apiResponse: ApiResponse) {
+        positionsList = ArrayList(apiResponse.response)
+        positionsList.forEach{
+            Log.d("Log.d", "Duration: ${it.duration} | TIME: ${it.risetime}")
+        }
     }
 
     override fun onError(e: Throwable) {
+        Log.d("Log.d", e.toString())
     }
 }
